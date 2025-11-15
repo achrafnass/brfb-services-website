@@ -26,6 +26,20 @@
   z-index: 2;
 }
 
+/* Version desktop visible par défaut */
+.footer-mobile-content {
+  display: none;
+}
+
+/* Cacher les containers mobiles dans la structure desktop sur desktop */
+.footer-nav-products {
+  display: none;
+}
+
+.footer-contact-mobile {
+  display: none;
+}
+
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -351,10 +365,107 @@
     padding: 3rem 0 1rem 0;
   }
   
+  /* Cacher version desktop sur mobile */
   .footer-content {
-    grid-template-columns: 1fr;
+    display: none;
+  }
+
+  /* Montrer version mobile */
+  .footer-mobile-content {
+    display: flex !important;
+    flex-direction: column;
     gap: 2rem;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 3rem;
+  }
+
+  /* Section logo mobile centrée */
+  .footer-mobile-logo {
     text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-mobile-logo .footer-logo {
+    justify-content: center;
+  }
+
+  .footer-mobile-logo .footer-description {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+  }
+
+  .footer-mobile-logo .footer-social {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  /* Container Navigation + Produits côte à côte */
+  .footer-nav-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-mobile-nav,
+  .footer-mobile-products {
+    text-align: left;
+  }
+
+  .footer-mobile-nav .footer-title,
+  .footer-mobile-products .footer-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-yellow);
+  }
+
+  .footer-mobile-nav .footer-links,
+  .footer-mobile-products .footer-links {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Section Contact centrée */
+  .footer-contact-mobile {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .footer-contact-mobile .footer-title {
+    color: var(--primary-yellow);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .footer-contact-mobile .contact-info-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .footer-contact-mobile .contact-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+    justify-content: center;
+  }
+
+  .footer-contact-mobile .location-btn {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .footer-contact-mobile .email-link {
+    text-align: center;
+    display: inline-block;
   }
   
   .footer-bottom {
@@ -366,10 +477,6 @@
   .footer-legal {
     flex-wrap: wrap;
     justify-content: center;
-  }
-  
-  .footer-links button {
-    text-align: center;
   }
   
   .contact-line {
@@ -391,6 +498,50 @@
   
   .footer-content {
     gap: 1.5rem;
+  }
+
+  /* Navigation et Produits avec gap réduit */
+  .footer-nav-products {
+    gap: 1rem;
+  }
+
+  .footer-navigation .footer-title,
+  .footer-products .footer-title {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-navigation .footer-links,
+  .footer-products .footer-links {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .footer-contact-mobile .footer-title {
+    font-size: 1.1rem;
+  }
+
+  .footer-contact-mobile .contact-info-simple {
+    gap: 0.6rem;
+  }
+
+  .footer-contact-mobile .contact-line {
+    gap: 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Ajustements pour la section logo sur petits écrans */
+  .footer-logo-section .footer-logo-text {
+    font-size: 1.4rem;
+  }
+  
+  .footer-logo-section .footer-logo-img {
+    height: 1.5rem;
+  }
+
+  .footer-logo-section .footer-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
   
   .footer-logo-text {

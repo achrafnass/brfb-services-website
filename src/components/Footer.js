@@ -18,8 +18,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
+        {/* VERSION DESKTOP - Structure originale */}
         <div className="footer-content">
-          <div className="footer-section">
+          <div className="footer-section footer-desktop-logo">
             <div className="footer-logo">
               <img 
                 src={`${process.env.PUBLIC_URL}/logo.jpg`} 
@@ -45,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-section">
+          <div className="footer-section footer-desktop-nav">
             <h3 className="footer-title">Navigation</h3>
             <ul className="footer-links">
               <li><Link to="/">Accueil</Link></li>
@@ -56,8 +57,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-section">
-            <h3 className="footer-title">Services</h3>
+          <div className="footer-section footer-desktop-products">
+            <h3 className="footer-title">Produits</h3>
             <ul className="footer-links">
               <li>Fournitures de Bureau</li>
               <li>Impression Bâche</li>
@@ -67,7 +68,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-section contact-section">
+          <div className="footer-section contact-section footer-desktop-contact">
             <h3 className="footer-title">Contact</h3>
             <div className="contact-info-simple">
               <p className="contact-line">
@@ -107,6 +108,102 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* VERSION MOBILE - Structure optimisée */}
+        <div className="footer-mobile-content">
+          {/* Section Logo mobile */}
+          <div className="footer-section footer-mobile-logo">
+            <div className="footer-logo">
+              <img 
+                src={`${process.env.PUBLIC_URL}/logo.jpg`} 
+                alt="B.R.F.B services" 
+                className="footer-logo-img"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'inline';
+                }}
+              />
+              <span className="footer-logo-icon" style={{display: 'none'}}>🖨️</span>
+              <span className="footer-logo-text">B.R.F.B services</span>
+            </div>
+            <p className="footer-description">
+              Votre partenaire d'impression de confiance depuis plus de 15 ans. 
+              Qualité, rapidité et service client exceptionnel.
+            </p>
+            <div className="footer-social">
+              <button className="social-btn whatsapp" onClick={handleWhatsAppClick}>
+                <span>💬</span>
+                WhatsApp
+              </button>
+            </div>
+          </div>
+
+          {/* Navigation et Produits côte à côte */}
+          <div className="footer-nav-products">
+            <div className="footer-section footer-mobile-nav">
+              <h3 className="footer-title">Navigation</h3>
+              <ul className="footer-links">
+                <li><Link to="/">Accueil</Link></li>
+                <li><Link to="/a-propos">À Propos</Link></li>
+                <li><Link to="/produits">Produits</Link></li>
+                <li><Link to="/demande-devis">Demande Devis</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+              </ul>
+            </div>
+
+            <div className="footer-section footer-mobile-products">
+              <h3 className="footer-title">Produits</h3>
+              <ul className="footer-links">
+                <li>Fournitures de Bureau</li>
+                <li>Impression Bâche</li>
+                <li>Roll-up & X-Banner</li>
+                <li>Impression Textile</li>
+                <li>Trophées & Gravure</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Contact centré */}
+          <div className="footer-section footer-contact-mobile">
+            <h3 className="footer-title">Contact</h3>
+            <div className="contact-info-simple">
+              <p className="contact-line">
+                <span className="contact-icon">📍</span>
+                <button 
+                  onClick={handleLocationClick} 
+                  className="location-btn"
+                  title={`Ouvrir dans la navigation (${GPS_COORDINATES.formatted})`}
+                >
+                  123 Rue de l'Impression,<br/>75000 Paris
+                  <span className="location-hint">📍 Cliquez pour naviguer</span>
+                </button>
+              </p>
+              <p className="contact-line">
+                <span className="contact-icon">📞</span>
+                06 61 09 75 19<br/>06 89 13 91 09
+              </p>
+              <div className="contact-line">
+                <span className="contact-icon">✉️</span>
+                <a 
+                  href="mailto:Brfbbureau@gmail.com" 
+                  className="email-link"
+                  title="Envoyer un email à B.R.F.B services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = 'mailto:Brfbbureau@gmail.com';
+                  }}
+                >
+                  Brfbbureau@gmail.com
+                </a>
+              </div>
+              <p className="contact-line">
+                <span className="contact-icon">⏰</span>
+                Lun-Ven: 8h-18h<br/>Sam: 9h-12h
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
         <div className="footer-bottom">
           <div className="footer-copyright">
             <p>&copy; 2025 B.R.F.B services. Tous droits réservés.</p>
