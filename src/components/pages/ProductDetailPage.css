@@ -1,0 +1,342 @@
+/* Page Détail Produit - Style avec cadre photo élégant */
+
+.detail-navigation {
+  padding: 6rem 0 1rem 0;
+  background: var(--background-white);
+  border-bottom: 1px solid var(--blue-subtle);
+  position: relative;
+  z-index: 1;
+}
+
+.back-btn {
+  background: rgba(30, 58, 138, 0.1);
+  border: 2px solid var(--primary-blue);
+  color: var(--primary-blue);
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1);
+}
+
+.back-btn:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateX(-5px);
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.product-detail-content {
+  padding: 4rem 0;
+  background: var(--background-white);
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Cadre photo élégant */
+.product-image-frame {
+  position: relative;
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--blue-subtle) 100%);
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: var(--shadow-mixed);
+}
+
+.image-container {
+  position: relative;
+  background: var(--background-white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
+}
+
+.image-container img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Coins décoratifs du cadre */
+.frame-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--primary-yellow);
+}
+
+.corner-tl {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 5px 0 0 0;
+}
+
+.corner-tr {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 5px 0 0;
+}
+
+.corner-bl {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 5px;
+}
+
+.corner-br {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 5px 0;
+}
+
+/* Badge qualité */
+.quality-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--gradient-secondary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-yellow);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transform: rotate(5deg);
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+.badge-text {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contenu texte */
+.product-text-content {
+  padding-left: 1rem;
+}
+
+.product-intro {
+  margin-bottom: 2rem;
+}
+
+.detail-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-mixed);
+  border-radius: 2px;
+}
+
+.description-section {
+  margin-bottom: 4rem;
+}
+
+.full-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+}
+
+
+/* Section CTA */
+.cta-section {
+  text-align: center;
+  padding: 2rem;
+  background: var(--gradient-subtle);
+  border-radius: 20px;
+  border: 2px solid var(--blue-subtle);
+}
+
+.quote-btn {
+  background: var(--gradient-secondary);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.quote-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.quote-btn:hover::before {
+  left: 100%;
+}
+
+.quote-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, var(--hover-yellow) 0%, var(--primary-yellow-dark) 100%);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+.btn-arrow {
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.quote-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+}
+
+.contact-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+}
+
+
+/* Responsive */
+@media (max-width: 968px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .product-text-content {
+    padding-left: 0;
+  }
+  
+  
+}
+
+@media (max-width: 768px) {
+  .product-detail-content {
+    padding: 3rem 0;
+  }
+  
+  .product-image-frame {
+    padding: 1.5rem;
+  }
+  
+  .image-container img {
+    height: 250px;
+  }
+  
+  .detail-title {
+    font-size: 2rem;
+  }
+  
+  .quote-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .cta-section {
+    padding: 1.5rem;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .detail-navigation {
+    padding: 5rem 0 1rem 0;
+  }
+  
+  .back-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .product-image-frame {
+    padding: 1rem;
+  }
+  
+  .image-container img {
+    height: 200px;
+  }
+  
+  .detail-title {
+    font-size: 1.6rem;
+  }
+  
+  .quality-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .quote-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+}

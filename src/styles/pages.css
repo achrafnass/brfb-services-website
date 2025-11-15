@@ -1,0 +1,142 @@
+/* Styles communs pour toutes les pages */
+
+/* Compensation pour navbar fixe */
+body {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+main {
+  margin-top: 0;
+}
+
+.page-hero {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 10rem 2rem 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--primary-blue-dark) 0%, var(--primary-blue) 70%, var(--primary-yellow) 100%);
+  opacity: 0.9;
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.page-content-section {
+  padding: 4rem 0;
+  background: var(--background-white);
+}
+
+.page-content-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-content-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Animations d'apparition */
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-hero,
+.page-content-section {
+  animation: pageSlideIn 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 8rem 1rem 4rem 1rem;
+    min-height: 350px;
+  }
+  
+  .page-hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .page-hero p {
+    font-size: 1rem;
+  }
+  
+  .page-content-section {
+    padding: 3rem 0;
+  }
+  
+  .page-content-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 7rem 1rem 3rem 1rem;
+    min-height: 300px;
+  }
+  
+  .page-hero h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+  
+  .page-hero p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
