@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/brfb-services-website/static/css/main.2fac5866.css",
-    "main.js": "/brfb-services-website/static/js/main.29200e5f.js",
+    "main.css": "/brfb-services-website/static/css/main.5f13aa94.css",
+    "main.js": "/brfb-services-website/static/js/main.931014e8.js",
     "index.html": "/brfb-services-website/index.html",
-    "main.2fac5866.css.map": "/brfb-services-website/static/css/main.2fac5866.css.map",
-    "main.29200e5f.js.map": "/brfb-services-website/static/js/main.29200e5f.js.map"
+    "main.5f13aa94.css.map": "/brfb-services-website/static/css/main.5f13aa94.css.map",
+    "main.931014e8.js.map": "/brfb-services-website/static/js/main.931014e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.2fac5866.css",
-    "static/js/main.29200e5f.js"
+    "static/css/main.5f13aa94.css",
+    "static/js/main.931014e8.js"
   ]
 }
