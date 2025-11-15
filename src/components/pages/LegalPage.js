@@ -15,7 +15,7 @@ const LegalPage = () => {
       <section className="legal-content">
         <div className="container">
           <div className="legal-text">
-            <p><strong>1.</strong> Identification de l'Entreprise. Dénomination sociale : B.R.F.B Services. Forme juridique : [À compléter selon votre statut]. Registre de Commerce : [À compléter]. Identifiant Fiscal : [À compléter]. Siège social : [Adresse complète au Maroc]. Téléphone : 06 61 09 75 19 / 06 89 13 91 09. Email : Brfbbureau@gmail.com.</p>
+            <p><strong>1.</strong> Identification de l'Entreprise. Dénomination sociale : B.R.F.B Services. Forme juridique : SARL AU. Registre de Commerce : 152695. Identifiant Fiscal (IF) : 66037040. Siège social : Résidence Saad Allah N 719, Talloujte II Amerciche, Marrakech. Téléphone : 06 61 09 75 19 / 06 89 13 91 09. Email : Brfbbureau@gmail.com.</p>
 
             <p><strong>2.</strong> Législation Applicable. Le présent site web est soumis à la législation marocaine, notamment la loi n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, la loi n° 53-05 relative à l'échange électronique de données juridiques, le Code de Commerce marocain et le Code des Obligations et Contrats.</p>
 

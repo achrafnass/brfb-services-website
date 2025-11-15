@@ -78,7 +78,7 @@ const Footer = () => {
                   className="location-btn"
                   title={`Ouvrir dans la navigation (${GPS_COORDINATES.formatted})`}
                 >
-                  123 Rue de l'Impression,<br/>75000 Paris
+                  Résidence Saad Allah N 719<br/>Talloujte II Amerciche, Marrakech
                   <span className="location-hint">📍 Cliquez pour naviguer</span>
                 </button>
               </p>
@@ -173,7 +173,7 @@ const Footer = () => {
                   className="location-btn"
                   title={`Ouvrir dans la navigation (${GPS_COORDINATES.formatted})`}
                 >
-                  123 Rue de l'Impression,<br/>75000 Paris
+                  Résidence Saad Allah N 719<br/>Talloujte II Amerciche, Marrakech
                   <span className="location-hint">📍 Cliquez pour naviguer</span>
                 </button>
               </p>
