@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="footer-section">
             <div className="footer-logo">
               <img 
-                src="/logo.jpg" 
+                src={`${process.env.PUBLIC_URL}/logo.jpg`} 
                 alt="B.R.F.B services" 
                 className="footer-logo-img"
                 onError={(e) => {

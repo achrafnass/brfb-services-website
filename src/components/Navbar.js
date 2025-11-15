@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
           <img 
-            src="/logo.jpg" 
+            src={`${process.env.PUBLIC_URL}/logo.jpg`} 
             alt="B.R.F.B services" 
             className="brand-logo"
             onError={(e) => {

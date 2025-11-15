@@ -8,7 +8,7 @@ const About = () => {
         <div className="about-content">
           <div className="about-image">
             <div className="image-placeholder">
-              <img src="/products-photos/image-bloc-a-propos.webp" alt="B.R.F.B services - Imprimerie à Marrakech" className="about-main-image" />
+              <img src={`${process.env.PUBLIC_URL}/products-photos/image-bloc-a-propos.webp`} alt="B.R.F.B services - Imprimerie à Marrakech" className="about-main-image" />
             </div>
           </div>
           
