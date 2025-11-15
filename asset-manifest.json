@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/brfb-services-website/static/css/main.2fac5866.css",
+    "main.js": "/brfb-services-website/static/js/main.a9a14f89.js",
+    "index.html": "/brfb-services-website/index.html",
+    "main.2fac5866.css.map": "/brfb-services-website/static/css/main.2fac5866.css.map",
+    "main.a9a14f89.js.map": "/brfb-services-website/static/js/main.a9a14f89.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fac5866.css",
+    "static/js/main.a9a14f89.js"
+  ]
+}
