@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products } from '../../data/products';
+---
+<Layout
+  title="Nos produits d'impression à Marrakech – B.R.F.B services"
+  description="Catalogue B.R.F.B services : fournitures de bureau, flyers, bâches, roll-up, X-banner, adhésifs, T-shirts, verre, plans, reliure, trophées et cachets à Marrakech."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> / <span>Produits</span></nav>
+      <h1>Nos <em>produits</em> et services</h1>
+      <p class="lead">Une gamme complète de solutions d'impression, de la carte de visite à la bâche géante.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icons from '../components/Icons.astro';
+import { products } from '../data/products';
+import { SITE, telLink } from '../data/site';
+---
+<Layout
+  title="Demande de devis gratuit – Imprimerie à Marrakech | B.R.F.B services"
+  description="Demandez votre devis d'impression gratuit à Marrakech : décrivez votre projet et recevez une réponse rapide par WhatsApp ou par email."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> / <span>Demande de devis</span></nav>
+      <h1>Demandez votre <em>devis</em> gratuit</h1>
+      <p class="lead">Décrivez votre projet en quelques lignes. Votre demande est envoyée sur WhatsApp, pour une réponse rapide.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <div class="form-card">
+        <form class="form" id="quote" novalidate>
+          <div class="form-row">
+            <div class="field"><label for="name">Nom complet *</label><input id="name" name="name" required autocomplete="name" /></div>
+            <div class="field"><label for="phone">Téléphone *</label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="06 00 00 00 00" /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="company">Société (facultatif)</label><input id="company" name="company" autocomplete="organization" /></div>
+            <div class="field"><label for="email">Email (facultatif)</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+          </div>
+          <div class="field">
+            <label for="product">Produit souhaité *</label>
+            <select id="product" name="product" required>
+              <option value="">Choisir un produit…</option>
+              {products.map((p) => <option value={p.title}>{p.title}</option>)}
+              <option value="Autre / plusieurs produits">Autre / plusieurs produits</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="details">Détails du projet *</label>
+            <textarea id="details" name="details" required placeholder="Format, quantité, support, délai souhaité…"></textarea>
+            <span class="hint">Vous pourrez envoyer vos fichiers directement dans la conversation WhatsApp.</span>
+          </div>
+          <p id="err" role="alert" style="color:#c0202b;font-weight:600;display:none">Merci de remplir les champs obligatoires.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-blue" type="submit"><Icons name="wa" /> Envoyer sur WhatsApp</button>
+            <button class="btn btn-outline" type="button" id="mail">Envoyer par email</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="side">
+        <div class="info blue">
+          <h3>Réponse rapide</h3>
+          <p>Besoin d'un conseil avant de vous lancer ? Appelez-nous, on vous guide.</p>
+          <p style="margin-top:10px">{SITE.phones.map((p) => <a href={telLink(p)} style="display:block;font-weight:700;font-size:1.1rem">{p}</a>)}</p>
+        </div>
+        <div class="info">
+          <h3>Horaires</h3>
+          <div class="hours">{SITE.hours.map((h) => <div><span>{h.days}</span><b>{h.time}</b></div>)}</div>
+        </div>
+        <div class="info">
+          <h3>Atelier</h3>
+          <p>{SITE.address[0]}<br />{SITE.address[1]}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ wa: SITE.whatsapp, email: SITE.email }}>
+    var f = document.getElementById('quote'), err = document.getElementById('err');
+    var qp = new URLSearchParams(location.search).get('produit');
+    if (qp) {
+      var sel = document.getElementById('product');
+      for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === qp) sel.selectedIndex = i;
+    }
+    function build() {
+      var d = new FormData(f);
+      var g = function (k) { return (d.get(k) || '').toString().trim(); };
+      if (!g('name') || !g('phone') || !g('product') || !g('details')) { err.style.display = 'block'; return null; }
+      err.style.display = 'none';
+      return 'NOUVELLE DEMANDE DE DEVIS\n\nClient : ' + g('name') +
+        (g('company') ? '\nSociété : ' + g('company') : '') +
+        '\nTéléphone : ' + g('phone') +
+        (g('email') ? '\nEmail : ' + g('email') : '') +
+        '\n\nProduit : ' + g('product') + '\n\nProjet :\n' + g('details') +
+        '\n\nMerci de me recontacter.';
+    }
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var m = build();
+      if (m) window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(m), '_blank', 'noopener');
+    });
+    document.getElementById('mail').addEventListener('click', function () {
+      var m = build();
+      if (m) location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Demande de devis') + '&body=' + encodeURIComponent(m);
+    });
+  </script>
+</Layout>

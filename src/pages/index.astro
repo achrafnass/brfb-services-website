@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icons from '../components/Icons.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products } from '../data/products';
+import { SITE, waLink, telLink } from '../data/site';
+
+const featured = products.filter((p) => p.featured).slice(0, 3);
+const faqs = [
+  { q: 'Où se trouve B.R.F.B services à Marrakech ?', a: `Notre atelier est situé ${SITE.address[0]}, ${SITE.address[1]}. Vous pouvez ouvrir l'itinéraire directement depuis la page Contact.` },
+  { q: "Quels sont vos horaires d'ouverture ?", a: "Nous sommes ouverts du lundi au vendredi de 8h00 à 18h00, et le samedi de 9h00 à 12h00." },
+  { q: 'Quels produits et services imprimez-vous ?', a: "Cartes de visite, papiers à en-tête, flyers, brochures, bâches, roll-ups, X-banners, PLV, adhésifs, T-shirts, verre, tirage de plans, reliure, trophées et cachets personnalisés." },
+  { q: 'Comment obtenir un devis ?', a: "Le devis est gratuit. Remplissez le formulaire de demande de devis, écrivez-nous sur WhatsApp au +212 689 139 109 ou appelez le 06 61 09 75 19." },
+  { q: 'Puis-je envoyer mes fichiers par WhatsApp ?', a: "Oui. Après votre demande de devis, vous pouvez nous envoyer vos fichiers directement dans la conversation WhatsApp." },
+  { q: 'Proposez-vous la conception graphique ?', a: "Oui, nous vous conseillons sur le support et le format, et la conception graphique est incluse sur certains produits comme les roll-ups." },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const ticker = ['Cartes de visite', 'Flyers', 'Brochures', 'Bâches', 'Roll-up & PLV', 'Adhésifs', 'T-shirts', 'Verre', 'Plans', 'Reliure', 'Trophées', 'Cachets'];
+---
+<Layout
+  title="Imprimerie à Marrakech | Impression digitale, offset & signalétique – B.R.F.B services"
+  description="B.R.F.B services, imprimerie à Marrakech : cartes de visite, flyers, brochures, bâches, roll-ups, PLV, textile, cachets et trophées. Devis gratuit, service rapide et qualité garantie."
+  jsonLd={faqLd}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Imprimerie à Marrakech</span>
+        <h1>Vos idées, <em>imprimées</em> avec précision.</h1>
+        <p class="lead">Cartes de visite, flyers, bâches, PLV, textile, trophées… B.R.F.B services donne vie à tous vos supports de communication, rapidement et avec un vrai souci du détail.</p>
+        <div class="hero-cta">
+          <a href="/demande-devis/" class="btn btn-yellow">Demander un devis <Icons name="arrow" /></a>
+          <a href="/produits/" class="btn btn-ghost">Voir nos produits</a>
+        </div>
+        <ul class="hero-trust">
+          <li>+15 ans d'expérience</li>
+          <li>Devis gratuit</li>
+          <li>Conseil personnalisé</li>
+        </ul>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <figure class="c1"><img src="/products-photos/image-bloc-a-propos.webp" alt="" fetchpriority="high" /></figure>
+        <figure class="c2"><img src="/products-photos/x-banner.webp" alt="" /></figure>
+        <figure class="c3"><img src="/products-photos/impression-adhesif.webp" alt="" /></figure>
+        <div class="badge"><div><b>15+</b><span>ans d'expertise</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      {[...ticker, ...ticker].map((t) => <span>{t}</span>)}
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Nos produits</span>
+          <h2 class="h2">Tout pour votre communication</h2>
+        </div>
+        <a href="/produits/" class="btn btn-outline">Voir le catalogue <Icons name="arrow" /></a>
+      </div>
+      <div class="grid">
+        {featured.map((p) => <ProductCard product={p} />)}
+      </div>
+      <p style="margin-top:36px;text-align:center">
+        <a href="/produits/" class="btn btn-blue">Voir le catalogue complet ({products.length} produits) <Icons name="arrow" /></a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap why-grid">
+      <div>
+        <span class="eyebrow">Pourquoi B.R.F.B</span>
+        <h2 class="h2" style="margin:14px 0 18px">Votre succès, notre engagement.</h2>
+        <p class="lead">Une équipe à l'écoute et du matériel moderne pour une qualité d'impression constante, sur tous les supports.</p>
+        <p style="margin-top:28px"><a href="/a-propos/" class="btn btn-yellow">Découvrir l'entreprise <Icons name="arrow" /></a></p>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal"><span class="n">01</span><div><h3>Service rapide</h3><p>Des délais respectés pour que vos supports soient prêts quand vous en avez besoin.</p></div></div>
+        <div class="why-item reveal"><span class="n">02</span><div><h3>Qualité garantie</h3><p>Matériel de dernière génération et finitions soignées sur papier, bâche, textile, verre et plus encore.</p></div></div>
+        <div class="why-item reveal"><span class="n">03</span><div><h3>Accompagnement personnalisé</h3><p>Conseils d'experts et conception graphique pour choisir le bon support et le bon format.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2 class="h2" style="margin-top:14px">Un devis en 3 étapes simples</h2>
+      <div class="steps">
+        <div class="step reveal"><h3>Décrivez votre projet</h3><p>Dites-nous ce dont vous avez besoin via le formulaire ou directement sur WhatsApp.</p></div>
+        <div class="step reveal"><h3>Recevez votre devis</h3><p>Nous vous répondons rapidement avec une proposition claire et des conseils adaptés.</p></div>
+        <div class="step reveal"><h3>On imprime</h3><p>Une fois validé, votre commande est produite avec soin et mise à votre disposition.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div class="split-img">
+        <img src="/products-photos/image-bloc-a-propos.webp" alt="Supports imprimés par B.R.F.B services : cartes, affiches et textile" loading="lazy" />
+      </div>
+      <div class="split-text">
+        <span class="eyebrow">Print & design</span>
+        <h2 class="h2">Votre partenaire impression pour tous vos projets</h2>
+        <p class="lead">Spécialisés dans l'impression offset, numérique, PLV et signalétique, nous accompagnons entreprises et particuliers à Marrakech, de la conception à la réalisation.</p>
+        <ul class="checks">
+          <li>Service rapide et efficace</li>
+          <li>Qualité d'impression garantie</li>
+          <li>Accompagnement personnalisé</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap faq-wrap">
+      <div>
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2 class="h2" style="margin-top:14px">Vos questions, nos réponses</h2>
+        <p class="lead" style="margin-top:16px">Imprimerie à Marrakech : l'essentiel à savoir avant de passer commande.</p>
+      </div>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details class="reveal">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Un projet ? <em>Parlons-en</em> dès aujourd'hui.</h2>
+          <p class="lead" style="margin-top:14px;color:rgba(255,255,255,.78)">Devis gratuit, réponse rapide. Écrivez-nous sur WhatsApp ou appelez-nous.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-yellow" href={waLink("Bonjour, je souhaiterais obtenir un devis pour mon projet d'impression.")} target="_blank" rel="noopener"><Icons name="wa" /> WhatsApp</a>
+          <a class="btn btn-ghost" href={telLink(SITE.phones[0])}><Icons name="phone" /> {SITE.phones[0]}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

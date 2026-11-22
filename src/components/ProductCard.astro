@@ -1,0 +1,11 @@
+---
+const { product } = Astro.props;
+---
+<a class="card reveal" href={`/produits/${product.slug}/`}>
+  <div class="card-img"><img src={product.image} alt={product.title} loading="lazy" width="640" height="480" /></div>
+  <div class="card-body">
+    <h3>{product.title}</h3>
+    <p>{product.short}</p>
+    <span class="card-link">Découvrir</span>
+  </div>
+</a>

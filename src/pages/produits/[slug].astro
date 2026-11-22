@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icons from '../../components/Icons.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products } from '../../data/products';
+import { SITE, waLink } from '../../data/site';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+const { product } = Astro.props;
+const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: product.title,
+  description: product.short,
+  image: new URL(product.image, SITE.url).href,
+  areaServed: 'Marrakech',
+  provider: { '@id': `${SITE.url}/#business` },
+};
+---
+<Layout
+  title={`${product.title} à Marrakech – B.R.F.B services`}
+  description={`${product.short} Devis gratuit chez B.R.F.B services, imprimerie à Marrakech.`}
+  image={product.image}
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> / <a href="/produits/">Produits</a> / <span>{product.title}</span></nav>
+      <h1>{product.title}</h1>
+      <p class="lead">{product.short}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap detail">
+      <div class="detail-img"><img src={product.image} alt={product.title} width="900" height="675" fetchpriority="high" /></div>
+      <div class="detail-text">
+        <span class="eyebrow">Description</span>
+        <p class="lead" style="color:var(--ink)">{product.long}</p>
+        <ul class="feat">{product.features.map((f) => <li>{f}</li>)}</ul>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-blue" href={`/demande-devis/?produit=${encodeURIComponent(product.title)}`}>Demander un devis <Icons name="arrow" /></a>
+          <a class="btn btn-outline" href={waLink(`Bonjour, je souhaiterais obtenir un devis pour : ${product.title}`)} target="_blank" rel="noopener"><Icons name="wa" /> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">À découvrir aussi</span><h2 class="h2">D'autres produits</h2></div></div>
+      <div class="grid">{others.map((p) => <ProductCard product={p} />)}</div>
+    </div>
+  </section>
+</Layout>

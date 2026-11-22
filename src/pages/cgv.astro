@@ -1,0 +1,28 @@
+---
+import LegalDoc from '../components/LegalDoc.astro';
+
+const items = [
+  { h: "Objet et champ d'application", p: "Les présentes Conditions Générales de Vente (CGV) régissent les relations commerciales entre B.R.F.B Services, entreprise d'impression et de reprographie, et le Client, personne physique ou morale souhaitant bénéficier de nos services. Elles s'appliquent à toute commande de services d'impression, quel que soit le moyen de commande utilisé." },
+  { h: 'Législation applicable', p: "Les présentes CGV sont régies par la législation marocaine, notamment le Dahir des Obligations et Contrats (DOC), le Code de Commerce marocain, la loi relative à la protection du consommateur et la législation fiscale marocaine en vigueur." },
+  { h: 'Services proposés', p: "Fournitures de bureau et impression administrative, impression sur bâche et supports publicitaires, roll-up, X-Banner et PLV, impression sur textiles personnalisés, impression sur verre et supports spéciaux, tirage de plans techniques, encollage et reliure de livres, trophées et gravure personnalisés, cachets et tampons personnalisés." },
+  { h: 'Processus de commande', p: "Toute commande commence par une demande de devis via notre <a href='/demande-devis/'>formulaire en ligne</a> (transfert vers WhatsApp ou email), par téléphone au 06 61 09 75 19 / 06 89 13 91 09, ou par email à <a href='mailto:Brfbbureau@gmail.com'>Brfbbureau@gmail.com</a>. Notre site ne stocke aucune donnée personnelle." },
+  { h: 'Devis et acceptation', p: "Tout devis est valable 30 jours à compter de sa date d'émission. L'acceptation du devis par le client vaut commande ferme. Aucune commande n'est exécutée sans accord préalable. Les prix sont exprimés en dirhams marocains (MAD), TTC." },
+  { h: 'Prix et conditions de paiement', p: "Les prix sont fermes et définitifs lors de l'acceptation du devis. Les frais de livraison, le cas échéant, sont en sus. Paiement comptant pour les nouvelles commandes, en espèces, par chèque ou par virement bancaire. Un acompte de 50 % peut être demandé pour les grosses commandes. La facture est remise lors de la livraison." },
+  { h: 'Délais', p: "Les délais sont indicatifs et communiqués lors du devis. Ils courent à partir de la réception de l'acompte et des fichiers définitifs. Tout retard du client dans la fourniture des éléments nécessaires reporte d'autant la livraison. B.R.F.B Services s'engage à respecter les délais convenus." },
+  { h: 'Fichiers et propriété intellectuelle', p: "Le client garantit disposer des droits sur tous les éléments fournis. Formats acceptés : PDF, AI, PSD, JPG, PNG haute résolution. B.R.F.B Services peut refuser tout fichier non conforme ou toute reproduction illégale. Le client assume l'entière responsabilité du contenu à imprimer." },
+  { h: 'Livraison et réception', p: "Livraison sur site ou retrait à l'atelier selon accord. Une vérification est obligatoire à la réception et toute réserve doit être signalée immédiatement. Passé 48 h, la marchandise est réputée conforme." },
+  { h: 'Garanties et réclamations', p: "B.R.F.B Services garantit la qualité de ses impressions, avec une reproduction fidèle selon les standards professionnels. Toute réclamation doit être formulée par écrit dans les 48 h, photographies à l'appui en cas de défaut visible. B.R.F.B Services s'engage à proposer une solution rapide." },
+  { h: 'Responsabilité', p: "B.R.F.B Services est responsable de la bonne exécution des travaux, dans la limite du montant de la commande. La responsabilité est exclue en cas de force majeure. Le client assume la responsabilité du contenu fourni." },
+  { h: 'Résolution des litiges', p: "Une résolution amiable est privilégiée. Une médiation est possible via la Chambre de Commerce locale. À défaut, les tribunaux marocains sont seuls compétents et la législation marocaine s'applique." },
+  { h: 'Contact', p: "Pour toute question relative aux présentes CGV : <a href='mailto:Brfbbureau@gmail.com'>Brfbbureau@gmail.com</a>, 06 61 09 75 19 / 06 89 13 91 09, ou WhatsApp depuis notre <a href='/demande-devis/'>formulaire de devis</a>." },
+  { h: 'Acceptation', p: "Toute commande implique l'acceptation pleine et entière des présentes CGV." },
+];
+---
+<LegalDoc
+  title="Conditions générales de vente"
+  subtitle="Conditions applicables aux services d'impression B.R.F.B Services."
+  seoTitle="Conditions générales de vente – B.R.F.B services"
+  seoDescription="CGV de B.R.F.B services, imprimerie à Marrakech : commande, devis, paiement, délais, livraison, garanties et litiges."
+  items={items}
+  updated="Novembre 2025"
+/>

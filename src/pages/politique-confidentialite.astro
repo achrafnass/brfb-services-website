@@ -1,0 +1,26 @@
+---
+import LegalDoc from '../components/LegalDoc.astro';
+
+const items = [
+  { h: 'Introduction', p: "La présente politique de confidentialité décrit comment B.R.F.B Services traite les informations que vous nous fournissez lors de l'utilisation de ce site. Notre site ne stocke aucune donnée personnelle : les informations sont uniquement transférées vers des services de messagerie externes de votre choix." },
+  { h: 'Cadre légal', p: "Cette politique est établie en conformité avec la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, le décret d'application n° 2-09-165 et les recommandations de la Commission Nationale de contrôle de la protection des Données à caractère Personnel (CNDP)." },
+  { h: 'Responsable du traitement', p: "B.R.F.B Services. Contact : <a href='mailto:Brfbbureau@gmail.com'>Brfbbureau@gmail.com</a>. Téléphone : 06 61 09 75 19 / 06 89 13 91 09." },
+  { h: 'Données collectées', p: "Lors de l'utilisation du formulaire de devis, vous saisissez votre nom, votre téléphone, éventuellement votre société et votre email, ainsi que la description de votre demande. Ces informations restent dans votre navigateur le temps de composer le message." },
+  { h: 'Finalité du traitement', p: "Vos données servent uniquement à pré-remplir un message WhatsApp ou email, afin de faciliter votre prise de contact et de vous permettre d'envoyer votre demande via votre application préférée. Aucun stockage n'est effectué sur nos serveurs." },
+  { h: 'Base légale', p: "Le traitement repose sur votre consentement lors de l'utilisation du formulaire, sur l'intérêt légitime de faciliter la communication avec nos clients et sur l'exécution de mesures précontractuelles (demande de devis)." },
+  { h: 'Absence de stockage', p: "Ce site ne dispose d'aucune base de données personnelle : pas de serveur de stockage, pas de base de données clients, pas d'historique conservé. Le transfert se fait directement vers votre application de messagerie et vous gardez le contrôle total de vos données." },
+  { h: 'Transfert vers des services tiers', p: "Selon votre choix, vos données sont transférées vers Gmail (Google) ou WhatsApp (Meta). Une fois transférées, elles sont régies par les politiques de confidentialité de ces services. Par ailleurs, le site charge ses polices depuis Google Fonts et, sur la page Contact, une carte Google Maps : ces services peuvent recevoir votre adresse IP." },
+  { h: 'Cookies et technologies similaires', p: "Ce site n'utilise aucun cookie de suivi ni cookie publicitaire, et ne dépose aucun traceur de mesure d'audience." },
+  { h: 'Vos droits', p: "Conformément à la loi marocaine, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition. Étant donné l'absence de stockage de données sur nos serveurs, la plupart de ces droits sont respectés d'office." },
+  { h: 'Contact et réclamations', p: "Pour toute question : <a href='mailto:Brfbbureau@gmail.com'>Brfbbureau@gmail.com</a> ou 06 61 09 75 19 / 06 89 13 91 09. En cas de réclamation, vous pouvez également saisir la Commission Nationale de contrôle de la protection des Données à caractère Personnel (CNDP)." },
+  { h: 'Modifications', p: "Cette politique peut être mise à jour pour refléter les évolutions légales ou techniques." },
+];
+---
+<LegalDoc
+  title="Politique de confidentialité"
+  subtitle="Protection de vos données selon la législation marocaine."
+  seoTitle="Politique de confidentialité – B.R.F.B services"
+  seoDescription="Politique de confidentialité de B.R.F.B services : aucune donnée stockée, aucun cookie de suivi, droits conformes à la loi marocaine 09-08."
+  items={items}
+  updated="Novembre 2026"
+/>

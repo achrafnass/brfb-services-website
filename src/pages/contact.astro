@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icons from '../components/Icons.astro';
+import { SITE, waLink, telLink } from '../data/site';
+---
+<Layout
+  title="Contact – Imprimerie à Marrakech | B.R.F.B services"
+  description="Contactez B.R.F.B services, imprimerie à Marrakech : téléphone, WhatsApp, email, adresse et horaires d'ouverture."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> / <span>Contact</span></nav>
+      <h1>Parlons de <em>votre projet</em></h1>
+      <p class="lead">Une question, un devis, un conseil ? Notre équipe vous répond rapidement.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="contact-cards">
+        <div class="info blue">
+          <h3>WhatsApp</h3>
+          <p>La façon la plus rapide d'obtenir un devis. Vous pouvez y joindre vos fichiers.</p>
+          <p style="margin-top:16px"><a class="btn btn-yellow" style="color:var(--ink)" href={waLink("Bonjour, je souhaiterais obtenir des informations sur vos services d'impression.")} target="_blank" rel="noopener"><Icons name="wa" /> Écrire sur WhatsApp</a></p>
+        </div>
+        <div class="info">
+          <h3>Téléphone</h3>
+          <p>{SITE.phones.map((p) => <a href={telLink(p)} style="display:block;font-weight:700;font-size:1.15rem;color:var(--ink)">{p}</a>)}</p>
+          <h3 style="margin-top:18px">Email</h3>
+          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        </div>
+        <div class="info">
+          <h3>Horaires</h3>
+          <div class="hours">{SITE.hours.map((h) => <div><span>{h.days}</span><b style="color:var(--ink)">{h.time}</b></div>)}</div>
+          <h3 style="margin-top:18px">Atelier</h3>
+          <p>{SITE.address[0]}<br />{SITE.address[1]}</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-blue" href={SITE.mapsUrl} target="_blank" rel="noopener">Ouvrir dans Google Maps <Icons name="arrow" /></a>
+        <a class="btn btn-outline" href="/demande-devis/">Demande de devis</a>
+      </div>
+      <iframe
+        class="map-frame"
+        title="Plan d'accès B.R.F.B services, Marrakech"
+        src={`https://maps.google.com/maps?q=${SITE.geo.lat},${SITE.geo.lng}&z=16&output=embed`}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+</Layout>

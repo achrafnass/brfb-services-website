@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  seoTitle: string;
+  seoDescription: string;
+  items: { h: string; p: string }[];
+  updated: string;
+}
+const { title, subtitle, seoTitle, seoDescription, items, updated } = Astro.props;
+---
+<Layout title={seoTitle} description={seoDescription}>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> / <span>{title}</span></nav>
+      <h1>{title}</h1>
+      <p class="lead">{subtitle}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap legal">
+      {items.map((it, i) => (
+        <article class="legal-item">
+          <span class="n">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h2>{it.h}</h2>
+            <p set:html={it.p} />
+          </div>
+        </article>
+      ))}
+      <p class="legal-meta">Dernière mise à jour : {updated}</p>
+    </div>
+  </section>
+</Layout>
