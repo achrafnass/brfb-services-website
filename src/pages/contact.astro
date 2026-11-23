@@ -44,7 +44,7 @@ import { SITE, waLink, telLink } from '../data/site';
       <iframe
         class="map-frame"
         title="Plan d'accès B.R.F.B services, Marrakech"
-        src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE.addressQuery)}&z=16&output=embed`}
+        src={SITE.mapsEmbed}
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
